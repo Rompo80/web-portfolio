@@ -1,5 +1,6 @@
 import "@styles/globals.css";
-import Nav from "@components/Nav";
+import "font-awesome/css/font-awesome.min.css";
+import Nav from "@components/nav/Nav";
 import Footer from "@components/Footer";
 import { Inter } from "next/font/google";
 
@@ -9,10 +10,9 @@ const inter = Inter({ subsets: ["latin"] });
 
 const styles = {
   pos: {
-    alignSelf: "center"
-  }
-}
-
+    alignSelf: "center",
+  },
+};
 
 export const metadata = {
   title: "rp developer",
@@ -27,7 +27,9 @@ const RootLayout = ({ children }) => {
       </Head>
       <body>
         <Nav />
-        <main style={styles.pos} className={inter.className}>{children}</main>
+        <main style={styles.pos} className={inter.className}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>
