@@ -1,0 +1,91 @@
+.proof_section {
+  display:flex;
+  justify-content: center;
+}
+
+
+.login_container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.login-page .overlay {
+  position: absolute; 
+  background: rgba(0, 94, 184, 0.5);
+  backdrop-filter: sepia(100%) hue-rotate(150deg) blur(5px) brightness(80%);
+  /* center overlay text */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 33.33px;
+  
+}
+
+
+.login_container h2{
+    font-weight: 400;
+}
+
+.login_form{
+ align-self: center;
+ max-width: 100vw; 
+ width: 350px; 
+ display: flex;
+ flex-direction: column;
+ gap: 0.5rem;
+ padding: 1rem;
+}
+
+.login-container input::placeholder {
+  color: #4d4d4d;
+}
+
+
+/*Alert-Box and its content style*/
+
+
+.alert-box {
+  /* Add common styles for the alert here */
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 0.75rem;
+  padding: 10px;
+  border: 1px solid #c60000;
+  border-radius: 4px;
+  background-color: #fcf2f2;
+  border-left: 3px solid #c60000;
+  max-width: max-content;
+  gap: 3rem;
+  /* justify-content: center; */
+  align-items: center;
+  top: 23px; /* compansate the existing padding*/
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+
+.success {
+  background-color: #d4edda !important;
+  border-color: #c3e6cb !important;
+}
+
+.alert-box span:last-child {
+  margin-left: auto;
+  cursor: pointer;
+  transition: .15s linear;
+}
+
+
+.alert-box span:first-child {
+  margin-right: auto;
+}
+
+.alert-box span:last-child:hover {
+  font-weight: 600;
+
+}

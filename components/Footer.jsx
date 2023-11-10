@@ -10,21 +10,21 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.social_media}>
       <div>
-        <a href="https://www.instagram.com/rompo80/?hl=fr-ca"
-          ><img
+        <Link href="https://www.instagram.com/rompo80/?hl=fr-ca"
+          ><Image
             src="/assets/icons/insta-logo-2.svg"
             alt="roman potachenski - instagram link"
-            width="40"
-        /></a>
+            width={35} height={35}
+        /></Link>
       </div>
 
       <div>
-        <a href="mailto:roman.potachenski@gmail.com"
-          ><img
+        <Link href="mailto:roman.potachenski@gmail.com"
+          ><Image
             src="/assets/icons/gmail-logo-2.svg"
             alt="roman potachens>ki - gmail"
-            width="40"
-        /></a>
+            width={35} height={35}
+        /></Link>
       </div>
     </div>
         <div className={styles.rp_info}>

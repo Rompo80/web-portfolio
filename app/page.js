@@ -1,5 +1,5 @@
-'use client'
-import React, { useState, useEffect } from 'react';
+"use client";
+import React, { useState, useEffect } from "react";
 import styles from "@styles/page.module.css";
 
 const slides = [
@@ -15,11 +15,9 @@ const slides = [
     src: "/assets/img/18048_index_web.jpg",
     alt: "wedding_gallery_roman potachenski",
   },
+];
 
-]
-  
 const Home = () => {
-
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Function to update the current slide
@@ -39,19 +37,16 @@ const Home = () => {
     };
   }, [currentSlide, slides.length]);
 
-
   return (
-    <section className={styles.description}>
-      <div
-        className={styles.slider}
-
-      >
-       {slides.map((img, index) => (
-       <img key={index}  src={img.src} alt={img.alt}
-       style={{ display: index === currentSlide ? "block" : "none" }}/>
-       
-       ))}
-      </div>
+    <section className={styles.slider}>
+      {slides.map((img, index) => (
+        <img
+          key={index}
+          src={img.src}
+          alt={img.alt}
+          style={{ display: index === currentSlide ? "block" : "none" }}
+        />
+      ))}
     </section>
   );
 };

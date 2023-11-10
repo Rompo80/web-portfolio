@@ -2,11 +2,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 :root {
+  
+  --bg-link_hover: rgb(235, 235, 235);
+  --border-color: #ced4da;
+  --border-color_form: #dddddd;
+
+
+
   --max-width: 1100px;
   --border-radius: 12px;
-  --font-mono: ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+ 
+
+  --accent-color: #FF911E;
+
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -36,6 +44,8 @@
     #00000010,
     #00000080
   );
+
+
 
   --callout-rgb: 238, 240, 241;
   --callout-border-rgb: 172, 175, 176;
@@ -84,6 +94,7 @@
 
 html,
 body {
+  position: relative;
   height: 100vh;
   max-width: 100vw;
   overflow-x: hidden;
@@ -91,6 +102,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   font-family: 'Montserrat', sans-serif;
+  gap: 1rem;
 }
 
 a {
@@ -99,12 +111,79 @@ a {
   transition: color 0.15s ease-in-out,
 }
 
-a:hover {
-  color: #FF911E;
+main {
+  align-self: center;
+  width: 100%;
 }
+
+
+
+
+a:hover {
+  color: var(--accent-color);
+}
+
+input {
+   font-weight: 300;
+}
+
+  input[type="password"],
+  input[type="text"] {
+    outline: 0;
+    border: 0;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    width: 100%;
+  }
+  
+  input[type="submit"] {
+    width: 100%;
+    border: 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    font-family: inherit;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    background-color:transparent;
+    border: 1px solid var(--border-color_form);
+    color: inherit;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+      border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-top: 0.75rem;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: var(--bg-btn_hover);
+  }
+  
+  
+  /*Bootstrap class button.btn.btn-primary*/
+  input[type="submit"]:focus {
+    outline: none;
+    box-shadow: var(--border-focus_style);
+  }
+  
+  input[type="password"]:focus,
+  input[type="text"]:focus {
+    outline: none;
+    border-color: var(--border-focus_color);
+    box-shadow: var(--border-focus_style);
+  }
+
+
 
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+
+

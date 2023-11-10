@@ -1,7 +1,6 @@
 .social_media {
     display: flex;
     justify-content: center;
-    margin-top: 75px;
     gap: 0.5rem;
     
 }
@@ -23,8 +22,8 @@
 }
 
 .rp_info {
-    width: 1100px;
-    border-top: 1px solid #555555;
+    width: 100%;
+    /* border-top: 1px solid #555555; */
 } 
 .rp_info>p{
     
@@ -38,3 +37,6 @@
     max-width: 70ch;
     
 }
+
+
+ 
