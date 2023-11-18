@@ -8,7 +8,6 @@ export default async function handle(req, res) {
       img_path: img_path,
       session_id: session_id,
       type_id: type_id
-    //   privilege: { connect: { email: authorEmail } },
     },
   })
   res.json(result)

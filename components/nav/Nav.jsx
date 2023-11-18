@@ -1,10 +1,12 @@
 "use client";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
+// import { authOptions } from '@app/api/auth/[...nextauth]/route';
+// import { getServerSession } from 'next-auth/next';
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@components/nav/nav.module.css";
 import MobileNav from "@components/mobile/MobileNav";
-import { useState } from "react";
+
 
 const links = [
   {
@@ -45,6 +47,9 @@ const links = [
 const Nav = () => {
   const [dropDown, setDropdown] = useState(false);
   const [mobileMenu, setMobile] = useState(false);
+  
+
+  
 
   const showMobileNav = () => {
     setMobile((prev) => !prev)
@@ -69,6 +74,7 @@ const Nav = () => {
   }, [dropDown]);
 
   return (
+  
     <header className={styles.header}>
       <div
         className={`${styles.overlay} ${mobileMenu ? styles.active : ""}`}
@@ -140,7 +146,6 @@ const Nav = () => {
             Roman Potachenski
           </span>
         </Link>
-
         <button className={styles.menu} onClick={showMobileNav}>
           <span
             className={`fa ${!mobileMenu ? "fa-bars" : "fa-times"} fa-lg`}
@@ -159,6 +164,7 @@ const Nav = () => {
         />
       )}
     </header>
+ 
   );
 };
 

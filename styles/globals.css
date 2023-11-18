@@ -126,7 +126,8 @@ a:hover {
 input {
    font-weight: 300;
 }
-
+  select,
+  input[type="email"],
   input[type="password"],
   input[type="text"] {
     outline: 0;

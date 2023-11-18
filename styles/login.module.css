@@ -1,8 +1,17 @@
 .proof_section {
   display:flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
 }
 
+.aside_container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+  width:65vw;
+  align-self: center;
+}
 
 .login_container {
   display: flex;
@@ -36,56 +45,17 @@
  display: flex;
  flex-direction: column;
  gap: 0.5rem;
- padding: 1rem;
 }
+.login_form button{
+  padding: 0.5rem;
+  font-size: inherit;
+  font-weight: normal;
+  text-transform: capitalize;
+  font-family: 'Montserrat', sans-serif;
+  margin-top: 0.5rem;
+}
+
 
 .login-container input::placeholder {
   color: #4d4d4d;
-}
-
-
-/*Alert-Box and its content style*/
-
-
-.alert-box {
-  /* Add common styles for the alert here */
-  position: absolute;
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 0.75rem;
-  padding: 10px;
-  border: 1px solid #c60000;
-  border-radius: 4px;
-  background-color: #fcf2f2;
-  border-left: 3px solid #c60000;
-  max-width: max-content;
-  gap: 3rem;
-  /* justify-content: center; */
-  align-items: center;
-  top: 23px; /* compansate the existing padding*/
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-}
-
-
-.success {
-  background-color: #d4edda !important;
-  border-color: #c3e6cb !important;
-}
-
-.alert-box span:last-child {
-  margin-left: auto;
-  cursor: pointer;
-  transition: .15s linear;
-}
-
-
-.alert-box span:first-child {
-  margin-right: auto;
-}
-
-.alert-box span:last-child:hover {
-  font-weight: 600;
-
 }
