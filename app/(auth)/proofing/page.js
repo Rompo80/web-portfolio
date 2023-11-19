@@ -17,6 +17,7 @@ const Proofing = () => {
                 src="/assets/img/family/family-1.webp"
                 alt="session_Gahbi-Nik"
               />
+             <p>Gabriela & Nikhil</p>
             </div>
           </Link>
         </section>
