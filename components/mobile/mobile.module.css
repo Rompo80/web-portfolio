@@ -11,8 +11,6 @@
   }
 
 
-
-
 .social_media {
  position: fixed;
  bottom: 2rem;
@@ -25,6 +23,7 @@
  padding-top: 1rem;
  width: 16ch;
  justify-content: center;
+ z-index: 2;
 } 
 
   .dropdown{

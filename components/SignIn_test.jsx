@@ -11,6 +11,7 @@ const SignInForm = ({ classes }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const styles = {
     disabled: {
@@ -21,6 +22,7 @@ const SignInForm = ({ classes }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     setMessage("Signing in...");
 
     try {
@@ -34,10 +36,11 @@ const SignInForm = ({ classes }) => {
         setMessage("Invalid credentials");
       } else {
         setMessage("");
-        router.refresh();
+        // router.refresh();
       }
     } catch (err) {
       console.log(err);
+      setIsLoading(false);
     }
   };
 
@@ -75,6 +78,7 @@ const SignInForm = ({ classes }) => {
         </button>
 
         <p>{message}</p>
+        {isLoading && <div className={classes.loader}></div>}
       </div>
     </section>
   );

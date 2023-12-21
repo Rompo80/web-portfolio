@@ -66,7 +66,7 @@ const Nav = () => {
     if (dropDown) {
       timer = setTimeout(() => {
         setDropdown(false);
-      }, 3000);
+      }, 5000);
     }
     return () => {
       clearTimeout(timer);

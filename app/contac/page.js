@@ -4,19 +4,14 @@ import classes from "@styles/contact.module.css";
 import { sendContactForm } from "@lib/mailApi";
 
 const initValues = { name: "", email: "", subject: "", message: "" };
-const initState = {
-  values: initValues,
-  isLoading: false,
-  errors: {},
-  touched: {},
-};
+const initState = { values: initValues };
 
 export default function Contact() {
   const [state, setState] = useState(initState);
-  const { values, isLoading, errors, touched } = state;
+  const [touched, setTouched] = useState({});
+  const { values, isLoading, error } = state;
 
-  const emailRegex =
-    /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
+  
 
   const handleChange = ({ target }) =>
     setState((prev) => ({
@@ -25,62 +20,23 @@ export default function Contact() {
         ...prev.values,
         [target.name]: target.value,
       },
-      touched: {
-        ...prev.touched,
-        [target.name]: true,
-      },
-      errors: {
-        ...prev.errors,
-        [target.name]: "", // Clear the error when the user starts typing again
-      },
     }));
 
   const onBlur = ({ target }) =>
-    setState((prev) => ({
+    setTouched((prev) => ({
       ...prev,
-      errors: {
-        ...prev.errors,
-        [target.name]: validateField(target.name, prev.values[target.name]),
-      },
+      [target.name]: true,
     }));
-
-  const validateField = (fieldName, value) => {
-    switch (fieldName) {
-      case "name":
-        return value.trim() ? "" : "*Please enter your name";
-      case "email":
-        return emailRegex.test(value)
-          ? ""
-          : "*Please enter a valid email address";
-      case "subject":
-        return value.trim() ? "" : "*Please enter the subject";
-      case "message":
-        return value.trim() ? "" : "*Please enter your message";
-      default:
-        return "";
-    }
-  };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-
-    // Validate all fields before submitting
-    const fieldErrors = Object.keys(values).reduce((acc, fieldName) => {
-      const error = validateField(fieldName, values[fieldName]);
-      if (error) acc[fieldName] = error;
-      return acc;
-    }, {});
-
-    if (Object.keys(fieldErrors).length > 0) {
-      // If there are validation errors, update the state to display them
-      setState((prev) => ({ ...prev, errors: fieldErrors }));
-      return;
-    }
-
-    setState((prev) => ({ ...prev, isLoading: true }));
-
+    setState((prev) => ({
+      ...prev,
+      isLoading: true,
+    }));
     try {
       await sendContactForm(values);
+      setTouched({});
       setState(initState);
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -88,14 +44,12 @@ export default function Contact() {
       setState((prev) => ({
         ...prev,
         isLoading: false,
-        errors: { general: "Failed to send message. Please try again later." },
+        error: error.message,
       }));
     }
   };
 
-  const btnDisabled =
-    Object.values(values).some((value) => !value.trim()) || isLoading;
-
+  const btnDisabled = !values.name || !values.email || !values.subject;
   return (
     <section className={classes.container}>
       <form
@@ -104,21 +58,21 @@ export default function Contact() {
         method="POST"
         onSubmit={onSubmit}
       >
-        {/* Display specific error messages for each field */}
-        <div className={classes.err_box}>
-          {Object.keys(errors).map((fieldName) => (
-            <span key={fieldName} style={{ color: "red", fontSize: "small" }}>
-              {errors[fieldName]}
-            </span>
-          ))}
-        </div>
+        {error && (
+          <span style={{ color: "red", fontSize: "large" }}>{error}</span>
+        )}
+        {/* {emailStatus && (
+          <span style={{ color: "green", fontSize: "large" }}>{emailStatus.message}</span>
+        )} */}
 
         <label className={classes.label}>
           Name
           <input
-            className={`${classes.input} ${
-              touched.name && errors.name ? classes.isInvalid : ""
-            }`}
+            className={
+              touched.name && !values.name
+                ? `${classes.input} ${classes.isInvalid}`
+                : classes.input
+            }
             type="text"
             name="name"
             value={values.name}
@@ -131,7 +85,7 @@ export default function Contact() {
           Email
           <input
             className={
-              !values.email && touched.email
+              touched.email && !values.email
                 ? `${classes.input} ${classes.isInvalid}`
                 : classes.input
             }
@@ -147,7 +101,7 @@ export default function Contact() {
           Subject
           <input
             className={
-              !values.subject && touched.subject
+              touched.subject && !values.subject
                 ? `${classes.input} ${classes.isInvalid}`
                 : classes.input
             }
@@ -166,7 +120,7 @@ export default function Contact() {
             name="message"
             rows={4}
             className={
-              !values.message && touched.message
+              touched.message && !values.message
                 ? `${classes.input} ${classes.isInvalid}`
                 : classes.input
             }
@@ -176,8 +130,7 @@ export default function Contact() {
             onBlur={onBlur}
           ></textarea>
         </label>
-
-        <button disabled={btnDisabled} type="submit">
+        <button disabled={btnDisabled || isLoading} type="submit">
           {isLoading ? "Submitting..." : "Submit"}
         </button>
       </form>

@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100vw;
+    max-width: 1100px;
+    justify-content: center;
+    align-self: center;
+    padding: 1rem;
+}
+
+.form {
+    flex-basis: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.err_box,
+.label {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+
+.err_box {
+    gap: 0.125rem;
+}
+
+
+.form textarea {
+   width: 100%;
+   border-radius: 0.25rem;
+   border-style: none;
+   border: 1px solid var(--border-color_form);
+   padding: 1rem;
+   font-size: large;
+   font-family: inherit;
+}
+
+
+.isInvalid {
+    border: 1px red solid !important;
+}
+
+.error {
+    display: none;
+}
+
+.aside {
+  flex-basis: 500px;
+}
+
+
