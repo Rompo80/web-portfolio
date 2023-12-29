@@ -144,3 +144,184 @@ export default async function handle(req, res) {
   })
   res.json(result)
 }
+
+
+  // jwt: {
+  //   async encode({ secret, token }) {
+  //     if (!token) {
+  //       throw new Error('No token to encode');
+  //     }
+  //     return jwt.sign(token, secret);
+  //   },
+  //   async decode({ secret, token }) {
+  //     if (!token) {
+  //       throw new Error('No token to decode');
+  //     }
+  //     const decodedToken = jwt.verify(token, secret);
+  //     if (typeof decodedToken === 'string') {
+  //       return JSON.parse(decodedToken);
+  //     } else {
+  //       return decodedToken;
+  //     }
+  //   },
+  // },
+
+  ///////
+  //"use client";
+// import { useState, useEffect } from "react";
+// import { useSearchParams } from "next/navigation";
+
+// const GahbiPage = () => {
+//   const [apiImages, setClientImages] = useState([]);
+//   const searchParams = useSearchParams();
+//   const sessionId = searchParams.get("id");
+//   const userId = searchParams.get("userId");
+
+//   useEffect(() => {
+//     const getImages = async () => {
+//       try {
+//         const result = await fetch(`/api/client/${sessionId}/${userId}`, {
+//           method: "GET",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//         });
+
+//         if (!result.ok) {
+//           throw new Error(`Error: ${result.status} - ${result.statusText}`);
+//         }
+
+//         setClientImages(await result.json());
+//       } catch (error) {
+//         console.error("There was an error reading the database", error);
+//       }
+//     };
+
+//     getImages();
+//   }, [sessionId, userId]);
+
+
+
+<!-- "use client";
+import React from "react";
+import classes from "@styles/login.module.css";
+import { useSession } from "next-auth/react";
+import Dashboard from "@components/Dashboard";
+import { useRouter, usePathname, useParams } from "next/navigation";
+
+
+const ProtectedLayout = ({ children }) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+
+  const { data: session, status } = useSession();
+  
+ 
+  const userName = decodeURIComponent(params.uImages[0])
+  const userPath = "/"+userName+"/"+params.uImages[1]+"/"+params.uImages[2]
+  // console.log(userPath);
+  if (status !== "authenticated") {
+    router.push("/signin");
+  }
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <>
+      <Dashboard classes={classes} pathname={userPath} session={session} />
+      {!session || userPath !== pathname.replace("/clients", "") ? (
+        <div>This is protected and you do not have access to it.</div>
+      ) : (
+        <>{children}</>
+      )}
+    </>
+  );
+};
+
+export default ProtectedLayout; -->
+
+<!-- import { useState } from 'react'
+import Image from "next/image";
+
+
+ 
+const names = ['Tim', 'Joe', 'Bel', 'Lee']
+ 
+export default function Page() {
+  const [results, setResults] = useState()
+ 
+  return (
+    <div>
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={async (e) => {
+          const { value } = e.currentTarget
+          // Dynamically load fuse.js
+          const Fuse = (await import('@public/assets/img/')).default
+          const fuse = new Fuse(names)
+ 
+          setResults(fuse.search(value))
+        }}
+      />
+      <pre>Results: {JSON.stringify(results, null, 2)}</pre>
+    </div>
+  )
+} -->
+
+
+
+
+
+// import classes from "@styles/gallery.module.css";
+// import Image from "next/image";
+
+
+ <!-- const GetPortfolio = ({ params }) => {
+const pathname = params.category;
+
+
+ let listPathname = `@public/assets/img/${pathname}`;
+
+
+
+ 
+
+ const imageContext = require.context(`@public/assets/img/editorial`, false, /\.(webp)$/); -->
+
+//   const images = imageContext.keys().map((key, index) => ({
+//     id: index,
+//     src: imageContext(key).default,
+//     alt: key.replace(/^.*[\\/]/, "").split(".")[0], // Extract filename without extension
+//   }));
+
+//   console.log(images);
+
+  
+
+
+<!-- 
+//   return (
+//     <main>
+//       <header className={classes.container_header}>
+//         <h2>{path}</h2>
+//       </header>
+//       <section className={classes.container_grid}>
+//         {!images ? (
+//           images.map((image) => (
+//             <div key={image.id}>
+//               <Image src={image.src} alt={image.alt} />
+//             </div>
+//           ))
+//         ) : (
+//           <p>No images</p>
+//         )}
+//       </section>
+//     </main>
+//   );
+// }; -->
+
+// export default GetPortfolio;

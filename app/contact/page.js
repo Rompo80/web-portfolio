@@ -104,20 +104,11 @@ export default function Contact() {
         method="POST"
         onSubmit={onSubmit}
       >
-        {/* Display specific error messages for each field */}
-        <div className={classes.err_box}>
-          {Object.keys(errors).map((fieldName) => (
-            <span key={fieldName} style={{ color: "red", fontSize: "small" }}>
-              {errors[fieldName]}
-            </span>
-          ))}
-        </div>
-
         <label className={classes.label}>
           Name
           <input
             className={`${classes.input} ${
-              touched.name && errors.name ? classes.isInvalid : ""
+              touched.name && !values.name ? classes.isInvalid : ""
             }`}
             type="text"
             name="name"
@@ -131,7 +122,7 @@ export default function Contact() {
           Email
           <input
             className={
-              !values.email && touched.email
+              errors.email && touched.email
                 ? `${classes.input} ${classes.isInvalid}`
                 : classes.input
             }
@@ -147,7 +138,7 @@ export default function Contact() {
           Subject
           <input
             className={
-              !values.subject && touched.subject
+              errors.subject && touched.subject
                 ? `${classes.input} ${classes.isInvalid}`
                 : classes.input
             }
@@ -166,7 +157,7 @@ export default function Contact() {
             name="message"
             rows={4}
             className={
-              !values.message && touched.message
+              errors.message && touched.message
                 ? `${classes.input} ${classes.isInvalid}`
                 : classes.input
             }
@@ -176,7 +167,14 @@ export default function Contact() {
             onBlur={onBlur}
           ></textarea>
         </label>
-
+        {/* Display specific error messages for each field */}
+        <div className={classes.err_box}>
+          {Object.keys(errors).map((fieldName) => (
+            <span key={fieldName} style={{ color: "red", fontSize: "small" }}>
+              {errors[fieldName]}
+            </span>
+          ))}
+        </div>
         <button disabled={btnDisabled} type="submit">
           {isLoading ? "Submitting..." : "Submit"}
         </button>

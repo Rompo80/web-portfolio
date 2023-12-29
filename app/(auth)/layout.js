@@ -9,7 +9,7 @@ export default function AuthLayout({ children }) {
  const pathname = usePathname();
   return (
   <>
-  <Dashboard classes={classes} pathname={pathname} session={session}/> 
+  <Dashboard classes={classes} pathname={pathname} session={session} status={status}/> 
   {children}
   </>
 

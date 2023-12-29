@@ -1,6 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "@styles/page.module.css";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 
 const slides = [
   {
@@ -27,6 +30,9 @@ const Home = () => {
 
   // Use useEffect to set up an interval for changing slides
   useEffect(() => {
+    Aos.init({
+      duration: 200,
+    });
     const interval = setInterval(() => {
       const nextSlide = (currentSlide + 1) % slides.length;
       updateSlide(nextSlide);
@@ -41,6 +47,7 @@ const Home = () => {
     <section className={styles.slider}>
       {slides.map((img, index) => (
         <img
+          data-aos="fade-up"
           key={index}
           src={img.src}
           alt={img.alt}

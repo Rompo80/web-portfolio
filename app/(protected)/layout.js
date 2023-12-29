@@ -1,30 +1,43 @@
-
 "use client";
-import React from 'react';
+import React from "react";
 import classes from "@styles/login.module.css";
-import { useSession } from 'next-auth/react';
-import Dashboard from '@components/Dashboard';
-import { usePathname } from 'next/navigation';
+import { useSession } from "next-auth/react";
+import Dashboard from "@components/Dashboard";
+import { useRouter, usePathname, useParams } from "next/navigation";
+import { useEffect } from "react";
 
 const ProtectedLayout = ({ children }) => {
-    const pathname = usePathname();
-    const { data: session, status } = useSession();
+  const pathname = usePathname();
+  const router = useRouter();
+  const params = useParams();
+
+  const { data: session, status } = useSession();
+  
  
-
-    if (status === 'loading') {
-        return <div>Loading...</div>;
-      }
+  const userName = decodeURIComponent(params.uImages[0])
+  const userPath = "/"+userName+"/"+params.uImages[1]+"/"+params.uImages[2]
 
 
-    return (
-      <>
-      <Dashboard classes={classes} pathname={pathname} session={session}/>
-      {!session || session.user?.email !== "kik@gmail.com" ?<div>
-          This is protected and you do not have access to it.
-        </div> : <>{children}</>}
-        
-      </>
-    );
+  useEffect(() => {
+    if (status !== "authenticated") {
+      router.push("/signin");
+    }
+  }, [status, router]);
+
+  if (status === "loading") {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <>
+      <Dashboard classes={classes} pathname={userPath} session={session} />
+      {!session || userPath !== pathname.replace("/clients", "") ? (
+        <div>This is protected and you do not have access to it.</div>
+      ) : (
+        <>{children}</>
+      )}
+    </>
+  );
 };
 
 export default ProtectedLayout;

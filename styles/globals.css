@@ -123,10 +123,12 @@ header a:hover {
   color: var(--accent-color);
 }
 
+
 input {
    font-weight: 300;
 }
   select,
+  [type="submit"],
   input[type="email"],
   input[type="password"],
   input[type="text"] {

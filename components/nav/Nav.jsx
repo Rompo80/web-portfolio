@@ -105,12 +105,16 @@ const Nav = () => {
                   {link.submenu.map((submenuItem) => (
                     <Link
                       key={submenuItem.to}
-                      href={submenuItem.to}
+                      // href={submenuItem.to}
+                      href={{ pathname: `/portfolio/[category]`}}
+                      as={`/portfolio/${submenuItem.to}`}
+                       shallow
                       className={styles.aLinks}
                       onClick={(e) => toggleSubmenu(e)}
                     >
                       {submenuItem.name}
                     </Link>
+                    
                   ))}
                 </div>
               </div>

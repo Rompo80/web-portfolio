@@ -1,32 +1,32 @@
 "use client";
 import Link from "next/link";
-// import { useSession } from "next-auth/react";
 
-
-
-const Dashboard = ({ classes, pathname, session }) => {
-  
+const Dashboard = ({ classes, pathname, session, status }) => {
   const pathClients = pathname.startsWith("/clients");
   console.log(pathname);
-  
+  console.log(status);
   return (
-    <section className={pathClients ? classes.dashboard :classes.header_container}>
-      {!pathClients ? <img
-        src="/assets/img/wedding_gallery/wedding-3.webp"
-        alt="header image"
-      /> : ""}
+    <section
+      className={pathClients ? classes.dashboard : classes.header_container}
+    >
+      {!pathClients ? (
+        <img
+          src="/assets/img/weddings/wedding-3.webp"
+          alt="header image"
+        />
+      ) : (
+        ""
+      )}
       <aside>
-        
-        {session ? (
+        {session || status === "authenticated" ? (
           <>
-
-            <p>{session.user.email}</p>
-            
+            <span>Welcome {session?.user.email}!</span>
             <Link href="/signout">Sign Out</Link>
           </>
-        ) : (<>
-          <p>Not signed in</p>
-          <Link href="/signup">Sign Up</Link>
+        ) : (
+          <>
+            <Link href="/signin">Sign In</Link>
+            <Link href="/signup">Sign Up</Link>
           </>
         )}
       </aside>

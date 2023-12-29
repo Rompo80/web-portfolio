@@ -34,6 +34,7 @@ const SignInForm = ({ classes }) => {
 
       if (!signInResponse || signInResponse.ok !== true) {
         setMessage("Invalid credentials");
+        setIsLoading(false);
       } else {
         setMessage("");
         // router.refresh();
@@ -45,6 +46,7 @@ const SignInForm = ({ classes }) => {
   };
 
   useEffect(() => {
+    console.log(router);
     if (status === "authenticated") {
       router.refresh();
       router.push("/proofing");

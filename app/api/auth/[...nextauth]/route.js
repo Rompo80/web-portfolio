@@ -53,25 +53,12 @@ const authOptions = {
     signOut: '/signout',
   },
   secret: process.env.NEXTAUTH_SECRET,
+
   jwt: {
-    async encode({ secret, token }) {
-      if (!token) {
-        throw new Error('No token to encode');
-      }
-      return jwt.sign(token, secret);
-    },
-    async decode({ secret, token }) {
-      if (!token) {
-        throw new Error('No token to decode');
-      }
-      const decodedToken = jwt.verify(token, secret);
-      if (typeof decodedToken === 'string') {
-        return JSON.parse(decodedToken);
-      } else {
-        return decodedToken;
-      }
-    },
+    encode: async ({ secret, token }) => jwt.sign(token, secret),
+    decode: async ({ secret, token }) => jwt.verify(token, secret),
   },
+  
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60,
@@ -81,6 +68,7 @@ const authOptions = {
     async session(params) {
       if (params.session.user) {
         params.session.user.email = params.token.email;
+        params.session.user.id = params.token.id;
       }
 
       return params.session;
@@ -88,12 +76,13 @@ const authOptions = {
     async jwt(params) {
       if (params.user) {
         params.token.email = params.user.email;
+        params.token.id = params.user.id;
       }
 
       return params.token;
     },
   },
-};
+ };
 
 const handler = NextAuth(authOptions);
 
