@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import classLayout from "@styles/layout.module.css"
 import classes from "@styles/login.module.css";
 import { useSession } from "next-auth/react";
 import Dashboard from "@components/Dashboard";
