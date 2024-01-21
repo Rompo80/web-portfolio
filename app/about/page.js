@@ -20,9 +20,8 @@ const About = () => {
         </aside>
 
         <article className={classes.content_about}>
-          <h2>Hello</h2>
-        
-          <p>
+          <h2>Bonjour, Hello</h2>
+           <p>
             We all experience small things in life that makes us happy. The
             photography is one of those things, and much more. It's amazing to
             cupture true emotions and sublim gestures. Everyday like this makes

@@ -105,7 +105,6 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  /* justify-content: space-between; */
   font-family: 'Montserrat', sans-serif;
   gap: 1rem;
 }
@@ -120,9 +119,6 @@ main {
   align-self: center;
   width: 100%;
 }
-
-
-
 
 header a:hover:not(:has(>span)){
   color: var(--accent-color);

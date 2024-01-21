@@ -5,8 +5,12 @@
 }
 
 .container_header > h2 {
-    font-size: 32px;
-    font-weight: 400;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 300;
+    text-transform: capitalize;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
 }
 
 .container_grid {
