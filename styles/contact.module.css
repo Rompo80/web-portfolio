@@ -9,8 +9,17 @@
     padding: 1rem;
 }
 
+
+.container > h2 {
+    font-size: 32px;
+    font-weight: 400;
+    flex-basis: 100%;
+    text-align: center;
+}
+
+
 .form {
-    flex-basis: 500px;
+    flex-basis: 400px;
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -38,6 +47,27 @@
    font-family: inherit;
 }
 
+.form > button {
+    background-color: transparent;
+    border-radius: 0.25rem;
+    /* border: 1px solid #ff921e; */
+    border: 1px solid #555555;
+    padding: 0.375rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.5;
+    /* background-clip: padding-box; */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    color: #555555;
+    cursor: pointer;
+    
+}
+
+
+.form > button:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+}
 
 .isInvalid {
     border: 1px red solid !important;
@@ -50,5 +80,6 @@
 .aside {
   flex-basis: 500px;
 }
+
 
 

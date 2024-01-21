@@ -4,10 +4,14 @@ import { NextResponse } from "next/server";
 export async function GET() {
   try {
     const photoSession = await prisma.session.findMany({
-        include: {
-          image: true,
+      include: {
+        image: {
+          include: {
+            category: true, // Include the category information
+          },
         },
-      });
+      },
+    });
 
     if (!photoSession) {
       return new NextResponse.JSON(

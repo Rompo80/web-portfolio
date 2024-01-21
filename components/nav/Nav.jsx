@@ -1,7 +1,5 @@
 "use client";
 import { useState, useEffect } from "react";
-// import { authOptions } from '@app/api/auth/[...nextauth]/route';
-// import { getServerSession } from 'next-auth/next';
 import Link from "next/link";
 import Image from "next/image";
 import styles from "@components/nav/nav.module.css";
@@ -105,7 +103,6 @@ const Nav = () => {
                   {link.submenu.map((submenuItem) => (
                     <Link
                       key={submenuItem.to}
-                      // href={submenuItem.to}
                       href={{ pathname: `/portfolio/[category]`}}
                       as={`/portfolio/${submenuItem.to}`}
                        shallow
@@ -133,6 +130,7 @@ const Nav = () => {
       </nav>
       <aside className={styles.aside}>
         <Link href="/" className={styles.div_img}>
+         
           <Image
             className={styles.img_logo}
             src="/assets/icons/rp-logo.svg"
@@ -140,14 +138,10 @@ const Nav = () => {
             width={45}
             height={45}
           />
-          <span
-            style={{
-              alignSelf: "end",
-              wordBreak: "break-word",
-              maxWidth: "11ch",
-            }}
+          <span 
+          className={styles.author}
           >
-            Roman Potachenski
+           Roman Potachenski
           </span>
         </Link>
         <button className={styles.menu} onClick={showMobileNav}>

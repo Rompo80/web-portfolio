@@ -2,18 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 import classes from "@styles/login.module.css";
-import classProofing from "@styles/proofing.module.css";
+import classProof from "@styles/proofing.module.css";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 
 const Proofing = () => {
-  const { data: session, status } = useSession(null);
+  const { data: session } = useSession(null);
   const [photoSession, setPhotoSession] = useState([]);
 
-  console.log(session);
+  
 
   useEffect(() => {
-    fetchSessions();
+     fetchSessions();
   }, []);
 
   const fetchSessions = async () => {
@@ -30,18 +30,18 @@ const Proofing = () => {
   };
 
   return (
-    <div className={classProofing.main_container}>
-      <section className={classProofing.flex_container}>
+    <div className={classProof.main_container}>
+      <section className={classProof.flex_container}>
         {photoSession.map((file) => (
           <Link
             key={file.id}
             href={{
-              pathname: session ? `/clients/[uName]/[uId]/[sId]` : `/signin`,
+              pathname: !session ? `/signin` : `/clients/[uName]/[uId]/[sId]`,
             }}
-            as={`/clients/${file.title}/${session?.user.id}/${file.id}`}
+            as={!session ? null : `/clients/${file.title}/${session?.user.id}/${file.id}`}
             shallow
           >
-            <div className={classProofing.flex_card}>
+            <div className={classProof.flex_card}>
               <img
                 src={file.image[0]?.img_path}
                 alt={`session_${file.title}`}
@@ -49,12 +49,13 @@ const Proofing = () => {
               <p
                 className={
                   session?.user.name === file.title
-                    ? classProofing.underline
+                    ? classProof.underline
                     : ""
                 }
               >
                 {file.title}
               </p>
+              <span className={classProof.img_type}>{file.image[0].category.type}</span>
             </div>
           </Link>
         ))}

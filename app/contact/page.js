@@ -98,6 +98,7 @@ export default function Contact() {
 
   return (
     <section className={classes.container}>
+      <h2>Contact Me</h2>
       <form
         id="email_form"
         className={classes.form}
@@ -105,7 +106,7 @@ export default function Contact() {
         onSubmit={onSubmit}
       >
         <label className={classes.label}>
-          Name
+          Name *
           <input
             className={`${classes.input} ${
               touched.name && !values.name ? classes.isInvalid : ""
@@ -119,7 +120,7 @@ export default function Contact() {
           />
         </label>
         <label className={classes.label}>
-          Email
+          Email *
           <input
             className={
               errors.email && touched.email
@@ -135,7 +136,7 @@ export default function Contact() {
           />
         </label>
         <label className={classes.label}>
-          Subject
+          Subject *
           <input
             className={
               errors.subject && touched.subject
@@ -151,7 +152,7 @@ export default function Contact() {
           />
         </label>
         <label className={classes.label}>
-          Message
+          Message *
           <textarea
             type="text"
             name="message"
