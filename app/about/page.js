@@ -10,6 +10,7 @@ const About = () => {
   return (
 
       <section className={classes.wrapper}>
+        <h2>About</h2>
         <aside className={classes.image}>
           <Image
             src="/assets/img/me/IMG-1285-NEW.jpg"

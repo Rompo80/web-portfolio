@@ -7,8 +7,9 @@
 
 
 .slider {
+  margin-top: auto;
+  margin-bottom: auto;
   width: clamp(385px, 50vw, 1000px);
   max-width: 575px; 
-  margin-left: auto;
-  margin-right: auto;
+  align-self: center;
 }

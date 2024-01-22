@@ -40,3 +40,6 @@ next-env.d.ts
 /authAndBcrypt.md
 /Dockerfile
 /*.env
+
+.vercel
+.env*.local

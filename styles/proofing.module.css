@@ -1,6 +1,7 @@
 .main_container {
-    max-width: 65vw;
+    margin-top: 1rem;
     align-self: center;
+    margin-bottom: auto;
 
 }
 

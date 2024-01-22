@@ -151,7 +151,7 @@ nav > div:not(.dropdownContent) {
   position: fixed;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1rem;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -185,6 +185,11 @@ nav > div:not(.dropdownContent) {
 @media (max-width: 1085px) {
 
 
+nav > div:not(.dropdownContent) {
+    width: 100%;
+ }
+
+
 .img_logo {
   display: block;
 }
@@ -201,6 +206,9 @@ nav > div:not(.dropdownContent) {
 .nav{
     display: none;
   }
+.aLinks {
+  font-size: 18px;
 
+}
 
 }

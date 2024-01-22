@@ -26,7 +26,7 @@ const ProtectedLayout = ({ children }) => {
   }
 
   return (
-    <section className={classLayout.section}>
+    <section>
       <Dashboard classes={classes} session={session}/>
       {!session || userName !== session?.user.name ? (
         <div>This page is protected and you do not have access to it.</div>
