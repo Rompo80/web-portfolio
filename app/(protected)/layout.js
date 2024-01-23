@@ -12,7 +12,12 @@ const ProtectedLayout = ({ children }) => {
 
   const { data: session, status } = useSession();
     
-  const userName = decodeURIComponent(params.uImages[0])
+  const userNameString = decodeURIComponent(params.uImages[0]);
+  const userName = userNameString.split(" ").join("");
+
+  const sessionUser = session?.user.name.split(" ").join("");
+
+  // console.log(sessionUser);
 
   useEffect(() => {
     if (status !== "authenticated") {
@@ -25,10 +30,11 @@ const ProtectedLayout = ({ children }) => {
     return <div>Loading...</div>;
   }
 
+
   return (
     <section>
       <Dashboard classes={classes} session={session}/>
-      {!session || userName !== session?.user.name ? (
+      {!session || userName !== sessionUser ? (
         <div>This page is protected and you do not have access to it.</div>
       ) : (
         <aside>{children}</aside>
