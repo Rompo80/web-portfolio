@@ -2,7 +2,6 @@ import { mailOptions, transporter } from "@lib/nodemailer";
 import { NextResponse } from "next/server";
 import fs from "fs";
 
-
 const generateEmailContent = (data) => {
   const contact_msg_fields = {
     name: "Name",
@@ -19,14 +18,13 @@ const generateEmailContent = (data) => {
     return (str += `<h1>${contact_msg_fields[key]}</h1><p>${val}</p>`);
   }, "");
 
-
   const path = require("path");
+
   const templatePath = path.join(
-    __dirname,
-    "../../../../../templates/email_template.html"
+    process.cwd(),
+    "templates/email_template.html"
   );
 
-  
   const htmlTemplate = fs.readFileSync(templatePath, "utf-8");
 
   // Replace the placeholder with the actual data
@@ -38,17 +36,21 @@ const generateEmailContent = (data) => {
   };
 };
 
-const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
+const emailRegex =
+  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
 
 export async function POST(req) {
   if (req.method === "POST") {
     const data = await req.json();
     const { name, email, subject, message } = data;
-  
+
     if (!name || !subject || !message || !emailRegex.test(email)) {
-      return NextResponse.json({ message: "Please enter valid information" }, { status: 400 });
+      return NextResponse.json(
+        { message: "Please enter valid information" },
+        { status: 400 }
+      );
     }
-    
+
     try {
       await transporter.sendMail({
         ...mailOptions,

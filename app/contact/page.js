@@ -13,7 +13,7 @@ const initState = {
 
 export default function Contact() {
   const [state, setState] = useState(initState);
-  const { values, isLoading, errors, touched } = state;
+  const { values, isLoading, errors, touched, isFormSubmitted } = state;
 
   const emailRegex =
     /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
@@ -80,8 +80,11 @@ export default function Contact() {
     setState((prev) => ({ ...prev, isLoading: true }));
 
     try {
+      // await sendContactForm(values);
+      // setState(initState);
       await sendContactForm(values);
-      setState(initState);
+      setState((prev) => ({ ...prev, ...initState, isFormSubmitted: true }));
+
     } catch (error) {
       console.error("Error submitting form:", error);
 
@@ -176,6 +179,11 @@ export default function Contact() {
             </span>
           ))}
         </div>
+        {isFormSubmitted && (
+          <div style={{ color: "green", fontSize: "small" }}>
+            Form submitted successfully!
+          </div>
+        )}
         <button disabled={btnDisabled} type="submit">
           {isLoading ? "Submitting..." : "Submit"}
         </button>
