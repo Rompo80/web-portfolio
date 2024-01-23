@@ -8,6 +8,7 @@
     width: 100%;
     max-width: 75ch;
     align-self: center;
+    margin-top: auto;
 }
 
 
@@ -32,7 +33,7 @@
 }
 
 .social_media img:hover {
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 

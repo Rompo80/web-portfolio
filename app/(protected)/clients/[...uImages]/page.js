@@ -21,8 +21,6 @@ const getImages = async ({ params }) => {
     },
   });
 
-  
-
 
 return (
   <section className={classes.flex}>
