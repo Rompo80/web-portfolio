@@ -7,18 +7,18 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 const authOptions = {
   providers: [
     CredentialsProvider({
-      name: 'credentials',
-      credentials: {
-        email: {
-          label: 'Email',
-          type: 'text',
-          placeholder: 'your@email.com',
-        },
-        password: {
-          label: 'Password',
-          type: 'password',
-        },
-      },
+      // name: 'credentials',
+      // credentials: {
+      //   email: {
+      //     label: 'Email',
+      //     type: 'text',
+      //     placeholder: 'your@email.com',
+      //   },
+      //   password: {
+      //     label: 'Password',
+      //     type: 'password',
+      //   },
+      // },
       authorize: async (credentials) => {
         if (!credentials) {
           return null;
@@ -53,7 +53,7 @@ const authOptions = {
     signOut: '/signout',
   },
   secret: process.env.NEXTAUTH_SECRET,
-
+  
   jwt: {
     encode: async ({ secret, token }) => jwt.sign(token, secret),
     decode: async ({ secret, token }) => jwt.verify(token, secret),

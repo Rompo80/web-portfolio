@@ -1,7 +1,5 @@
 "use client";
-
 import React, { useState, useEffect } from "react";
-import classes from "@styles/login.module.css";
 import classProof from "@styles/proofing.module.css";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
