@@ -119,7 +119,7 @@ const ClientsImg = ({ img, userId }) => {
           alt="download"
         />
       </button>
-      <img src={img.img_path} alt={imgName(img.img_path)} />
+      <Image src={img.img_path} alt={imgName(img.img_path)} width={100} height={100} />
     </div>
   );
 };

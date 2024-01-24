@@ -3,15 +3,14 @@ import React, { useState, useEffect } from "react";
 import classProof from "@styles/proofing.module.css";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Image from "next/image";
 
 const Proofing = () => {
   const { data: session } = useSession(null);
   const [photoSession, setPhotoSession] = useState([]);
 
-  
-
   useEffect(() => {
-     fetchSessions();
+    fetchSessions();
   }, []);
 
   const fetchSessions = async () => {
@@ -36,24 +35,29 @@ const Proofing = () => {
             href={{
               pathname: !session ? `/signin` : `/clients/[uName]/[uId]/[sId]`,
             }}
-            as={!session ? null : `/clients/${file.title}/${session?.user.id}/${file.id}`}
-            shallow
+            as={
+              !session
+                ? null
+                : `/clients/${file.title}/${session?.user.id}/${file.id}`
+            }
           >
             <div className={classProof.flex_card}>
-              <img
+              <Image
                 src={file.image[0]?.img_path}
                 alt={`session_${file.title}`}
+                width={100}
+                height={100}
               />
               <p
                 className={
-                  session?.user.name === file.title
-                    ? classProof.underline
-                    : ""
+                  session?.user.name === file.title ? classProof.underline : ""
                 }
               >
                 {file.title}
               </p>
-              <span className={classProof.img_type}>{file.image[0].category.type}</span>
+              <span className={classProof.img_type}>
+                {file.image[0].category.type}
+              </span>
             </div>
           </Link>
         ))}

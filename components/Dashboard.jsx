@@ -6,6 +6,7 @@ const Dashboard = ({ classes, session, status }) => {
 
   const adminEmail = process.env.ADMIN_USER;
   const clientEmail = session?.user.email;
+  
    console.log(adminEmail);
   return (
     <section className={classes.header_container}>

@@ -26,7 +26,7 @@ const GetPortfolio = ({ params }) => {
         <h2>{pathname}</h2>
       </header>
       <section className={classes.container_grid}>
-        {images.length > 0 ? (
+        {images != null ? (
           images.map((image) => (
             <div key={image.id}>
               <img src={image.src} alt={image.alt} />{" "}
