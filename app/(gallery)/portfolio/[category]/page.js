@@ -1,6 +1,7 @@
 import fs from "fs";
 import classes from "@styles/gallery.module.css";
 import path from "path";
+import Image from "next/image";
 
 const GetPortfolio = ({ params }) => {
   const pathname = params.category;
@@ -29,8 +30,7 @@ const GetPortfolio = ({ params }) => {
         {images != null ? (
           images.map((image) => (
             <div key={image.id}>
-              <img src={image.src} alt={image.alt} />{" "}
-              {/* Adjust width and height as needed */}
+              <Image src={image.src} alt={image.alt} width={100} height={100}/>
             </div>
           ))
         ) : (
