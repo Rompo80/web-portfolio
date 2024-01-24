@@ -5,7 +5,7 @@ const getImages = async ({ params }) => {
   const { uImages } = params;
   let userId = parseInt(uImages[1]);
   let sessionId = parseInt(uImages[2]);
-  let userName = decodeURIComponent(uImages[0]);
+  // let userName = decodeURIComponent(uImages[0]);
 
   if (!sessionId || !userId) {
     sessionId = "";

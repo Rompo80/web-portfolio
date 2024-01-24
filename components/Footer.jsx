@@ -31,7 +31,7 @@ const Footer = () => {
         </div>
       </div>
       <div className={styles.rp_info}>
-        <p>
+        <p className={styles.copyright}>
           All rights reserved &copy;roman potachenski photography
           &#8226;montreal|toronto&#8226;
           roman.potachenksi@gmail.com|514-573-3527

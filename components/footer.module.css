@@ -44,5 +44,8 @@
     text-align: center;
 }
 
-
+.copyright {
+    appearance: none;
+    text-decoration: none;
+}
  

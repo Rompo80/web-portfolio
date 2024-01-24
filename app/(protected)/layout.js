@@ -12,12 +12,10 @@ const ProtectedLayout = ({ children }) => {
 
   const { data: session, status } = useSession();
     
-  const userNameString = decodeURIComponent(params.uImages[0]);
-  const userName = userNameString.split(" ").join("");
+  const userName = decodeURIComponent(params.uImages[0]);
+  const sessionUser = session?.user.name;
 
-  const sessionUser = session?.user.name.split(" ").join("");
-
-  // console.log(sessionUser);
+  
 
   useEffect(() => {
     if (status !== "authenticated") {
