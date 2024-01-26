@@ -5,20 +5,17 @@
     display: flex;
     flex-wrap: wrap;
     gap: 1rem; 
+    row-gap: 2rem;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 25px;
 }
 
-
 .img_frame {
     position: relative;
     padding-top: 15px;
     width: auto;
-    max-width: 525px;
-    height: 325px;
-    display: flex;
-    flex-direction: column;
+    height: 300px;
 }
 
 .img_frame > span {
@@ -30,18 +27,21 @@
     justify-content: space-between;
     gap: 0.25rem;
     cursor: pointer;
-}
-
-.flex img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
    
 }
 
+.img_frame>button>img,
+.img_frame > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .img_frame button {
+    width: 35px;
+    height: 35px;
     position: absolute;
-    bottom: 0.5rem;
+    bottom: -1rem;
     right: 0.5rem;
     background: whitesmoke;
     border: none;
@@ -50,6 +50,7 @@
     padding: 0.25rem;
     cursor: pointer;
 }
+
 
 @media (max-width: 415px) {
     .img_frame {

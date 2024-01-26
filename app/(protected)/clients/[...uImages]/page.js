@@ -1,6 +1,8 @@
 import prisma from "@lib/prisma";
 import ClientsImg from "@components/ClientsImg";
 import classes from '@styles/clients.module.css';
+
+
 const getImages = async ({ params }) => {
   const { uImages } = params;
   let userId = parseInt(uImages[1]);
@@ -26,7 +28,7 @@ return (
   <section className={classes.flex}>
       {images ? (
         images.map((img) => (
-          <ClientsImg key={img.id} img={img} userId={userId}/>
+          <ClientsImg key={img.id} img={img} userId={userId} classes={classes}/>
         ))
       ) : (
         <h2>The session photos will be uploaded shortly</h2>

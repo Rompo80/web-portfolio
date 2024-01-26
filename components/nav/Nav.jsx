@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import logo from '@public/assets/icons/rp-logo.svg';
 import styles from "@components/nav/nav.module.css";
 import MobileNav from "@components/mobile/MobileNav";
 
@@ -25,7 +26,7 @@ const links = [
   },
   {
     to: "/",
-    img: "/assets/icons/rp-logo.svg",
+    img: logo.src,
     alt: "rp-logo",
     name: "",
     id: "2",
@@ -133,10 +134,8 @@ const Nav = () => {
          
           <Image
             className={styles.img_logo}
-            src="/assets/icons/rp-logo.svg"
+            src={logo}
             alt="rp-logo"
-            width={45}
-            height={45}
           />
           <span 
           className={styles.author}
@@ -146,8 +145,8 @@ const Nav = () => {
         </Link>
         <button className={styles.menu} onClick={showMobileNav}>
           <span
-            className={`fa ${!mobileMenu ? "fa-bars" : "fa-times"} fa-lg`}
-            aria-label="menu"
+            className={`fa ${!mobileMenu ? "fa-bars" : "fa-times"} fa-2x`}
+            aria-label="menu-hamburger"
           ></span>
         </button>
       </aside>

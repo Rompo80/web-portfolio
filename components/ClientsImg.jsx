@@ -1,15 +1,17 @@
 "use client";
 import React from "react";
 import { useState, useEffect } from "react";
-import classes from "@styles/clients.module.css";
 import Image from "next/image";
+import download from "@public/assets/icons/download.png";
 
-const ClientsImg = ({ img, userId }) => {
+const ClientsImg = ({ img, userId, classes }) => {
   const [isLiked, setIsLiked] = useState(null);
 
   const imgName = (path) => {
     const pathParts = path.split("/");
-    return pathParts[pathParts.length - 1];
+    const namePart = pathParts[pathParts.length - 1];
+    const imageName = namePart.split(".");
+    return imageName[imageName.length - 2];
   };
 
   useEffect(() => {
@@ -111,15 +113,15 @@ const ClientsImg = ({ img, userId }) => {
           onClick={toggleLike}
         ></span>
       </span>
+     
+      <img src={img.img_path} alt={imgName(img.img_path)} />
+  
       <button type="button" onClick={handleClick}>
         <Image
-          src="/assets/icons/download.png"
-          width={20}
-          height={20}
-          alt="download"
+          src={download}
+          alt="download-button"
         />
       </button>
-      <Image src={img.img_path} alt={imgName(img.img_path)} width={100} height={100} />
     </div>
   );
 };

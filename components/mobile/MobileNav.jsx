@@ -1,5 +1,7 @@
 "use client";
 import classes from "@components/mobile/mobile.module.css";
+import instIcone from '@public/assets/icons/insta-logo-2.svg'
+import emailIcone from '@public/assets/icons/gmail-logo-2.svg'
 import Link from "next/link";
 import Image from "next/image";
 
@@ -66,12 +68,10 @@ const MobileNav = ({
       </nav>
       <footer className={classes.social_media}>
         <div>
-          <Link href="https://www.instagram.com/rompo80/?hl=fr-ca">
+          <Link href="https://www.instagram.com/potachenski_photo/?hl=fr-ca">
             <Image
-              src="/assets/icons/insta-logo-2.svg"
+              src={instIcone}
               alt="roman potachenski - instagram link"
-              width={30}
-              height={30}
             />
           </Link>
         </div>
@@ -79,10 +79,8 @@ const MobileNav = ({
         <div>
           <Link href="mailto:roman.potachenski@gmail.com">
             <Image
-              src="/assets/icons/gmail-logo-2.svg"
+              src={emailIcone}
               alt="roman potachens>ki - gmail"
-              width={30}
-              height={30}
             />
           </Link>
         </div>

@@ -4,6 +4,7 @@ import classProof from "@styles/proofing.module.css";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
+import lockIcon from '@public/assets/icons/lock.png';
 
 const Proofing = () => {
   const { data: session } = useSession(null);
@@ -42,18 +43,21 @@ const Proofing = () => {
             }
           >
             <div className={classProof.flex_card}>
+              <div>
               <Image
+                className={session?.user.name === file.title ?  classProof.opacity : ""}
                 src={file.image[0]?.img_path}
                 alt={`session_${file.title}`}
-                width={100}
-                height={100}
+                width={500}
+                height={500}
+                priority
               />
-              <p
-                className={
-                  session?.user.name === file.title ? classProof.underline : ""
-                }
-              >
-                {file.title}
+              <div className={session?.user.name === file.title ? "" : classProof.overlay}></div>
+              <Image className={session?.user.name === file.title ? "": classProof.lock} src={lockIcon} alt="locked section" />
+              </div>
+              
+              <p>
+                {file.title} 
               </p>
               <span className={classProof.img_type}>
                 {file.image[0].category.type}

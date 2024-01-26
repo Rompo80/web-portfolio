@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Dashboard = ({ classes, session, status }) => {
 
-  const adminEmail = process.env.ADMIN_USER;
+  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_USER;
   const clientEmail = session?.user.email;
   
    console.log(adminEmail);

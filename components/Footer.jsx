@@ -1,6 +1,8 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
+import instIcon from '@public/assets/icons/insta-logo-2.svg';
+import emailIcon from '@public/assets/icons/gmail-logo-2.svg';
 import styles from "@components/footer.module.css";
 
 
@@ -11,10 +13,8 @@ const Footer = () => {
         <div>
           <Link href="https://www.instagram.com/potachenski_photo/?hl=fr-ca">
             <Image
-              src="/assets/icons/insta-logo-2.svg"
+              src={instIcon}
               alt="roman potachenski - instagram link"
-              width={35}
-              height={35}
             />
           </Link>
         </div>
@@ -22,10 +22,8 @@ const Footer = () => {
         <div>
           <Link href="mailto:roman.potachenski@gmail.com">
             <Image
-              src="/assets/icons/gmail-logo-2.svg"
+              src={emailIcon}
               alt="roman potachens>ki - gmail"
-              width={35}
-              height={35}
             />
           </Link>
         </div>

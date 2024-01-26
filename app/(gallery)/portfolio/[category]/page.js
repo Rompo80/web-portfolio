@@ -14,13 +14,13 @@ const GetPortfolio = ({ params }) => {
   const imageFiles = files.filter((file) =>
     /\.(jpg|jpeg|png|gif|webp)$/i.test(file)
   );
-  console.log(files);
+
   const images = imageFiles.map((file, index) => ({
     id: index,
     src: `/assets/img/${pathname}/${file}`,
     alt: file.split(".")[0],
   }));
-
+ 
   return (
     <main>
       <header className={classes.container_header}>
@@ -30,7 +30,7 @@ const GetPortfolio = ({ params }) => {
         {images != null ? (
           images.map((image) => (
             <div key={image.id}>
-              <Image src={image.src} alt={image.alt} width={100} height={100}/>
+              <Image src={image.src} alt={image.alt} width={800} height={533} blurDataURL="blur"/>
             </div>
           ))
         ) : (
