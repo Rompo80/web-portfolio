@@ -1,14 +1,16 @@
 
 .toggleDropdown {
   animation: dropdownVisible 0.3s ease-in-out 1 forwards;
+  padding-top: 15px;
 }
 
-  .mobileDropbox{
-    display: flex;
-    flex-direction: column;
-    padding-top: 15px;
-    gap: 0.5rem;
-  }
+.mobileDropbox{
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 
 
 .social_media {
@@ -25,32 +27,16 @@
  justify-content: center;
  z-index: 2;
 } 
-
-  .dropdown{
-    position: relative;
-    height:20vh;
-    min-height: 15vh;
-    margin-bottom: 2rem;
-    width: auto;
-  }
-
-  .dropdown .aLinks {
-    width: auto;
-  }
-  .logo_center {
-    display: none;
-  }
  
 /* Define a keyframes animation for sliding in */
 @keyframes dropdownVisible {
   from {
       opacity: 0;
+      transform: translateY(10%);
   }
   to {
       opacity: 1;
   }
 }
-
-    
 
 

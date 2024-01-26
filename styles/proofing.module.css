@@ -44,7 +44,7 @@
   opacity: 1;
 }
 
-.lock {
+.isLock {
   width: 35px !important;
   height: 35px !important;
   position: absolute;
@@ -52,6 +52,11 @@
   top: calc(50% - 15px);
   filter: invert();
 }
+
+.isNoLock {
+  display: none;
+}
+
 
 .flex_card .overlay {
   position: absolute;

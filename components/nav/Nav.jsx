@@ -5,49 +5,13 @@ import Image from "next/image";
 import logo from '@public/assets/icons/rp-logo.svg';
 import styles from "@components/nav/nav.module.css";
 import MobileNav from "@components/mobile/MobileNav";
+import navLinks from '@lib/navLinks';
+import menuClose from '@public/assets/icons/menu_close.svg';
 
-
-const links = [
-  {
-    to: "/#",
-    name: "Gallery",
-    id: "0",
-    submenu: [
-      { to: "/weddings", name: "Weddings" },
-      { to: "/family", name: "Family" },
-      { to: "/editorial", name: "Editorial" },
-      { to: "/events", name: "Events" },
-    ],
-  },
-  {
-    to: "/proofing",
-    name: "Proofing Gallery",
-    id: "1",
-  },
-  {
-    to: "/",
-    img: logo.src,
-    alt: "rp-logo",
-    name: "",
-    id: "2",
-  },
-  {
-    to: "/about",
-    name: "About",
-    id: "3",
-  },
-  {
-    to: "/contact",
-    name: "Contact",
-    id: "4",
-  },
-];
 
 const Nav = () => {
   const [dropDown, setDropdown] = useState(false);
   const [mobileMenu, setMobile] = useState(false);
-  
-
   
 
   const showMobileNav = () => {
@@ -79,7 +43,7 @@ const Nav = () => {
         className={`${styles.overlay} ${mobileMenu ? styles.active : ""}`}
       ></div>
       <nav className={styles.nav}>
-        {links.map((link, index) => (
+        {navLinks.map((link, index) => (
           <div
             key={link.id}
             className={index === 2 ? styles.logo_center : ""}
@@ -144,16 +108,18 @@ const Nav = () => {
           </span>
         </Link>
         <button className={styles.menu} onClick={showMobileNav}>
-          <span
-            className={`fa ${!mobileMenu ? "fa-bars" : "fa-times"} fa-2x`}
-            aria-label="menu-hamburger"
-          ></span>
+          {!mobileMenu ? (<span
+            className="fa fa-bars fa-2x"
+            aria-label="mobile-menu-button"
+          ></span>) : (<Image
+            src={menuClose}
+            alt="mobile-menu-button"
+          />)}
         </button>
       </aside>
       {mobileMenu && (
         <MobileNav
           dropDown={dropDown}
-          links={links}
           styles={styles}
           toggleSubmenu={toggleSubmenu}
           mobileMenu={mobileMenu}

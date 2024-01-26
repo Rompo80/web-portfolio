@@ -53,7 +53,7 @@ const Proofing = () => {
                 priority
               />
               <div className={session?.user.name === file.title ? "" : classProof.overlay}></div>
-              <Image className={session?.user.name === file.title ? "": classProof.lock} src={lockIcon} alt="locked section" />
+              <Image className={session?.user.name === file.title ? classProof.isNoLock: classProof.isLock} src={lockIcon} alt="locked section" />
               </div>
               
               <p>

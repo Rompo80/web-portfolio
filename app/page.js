@@ -10,21 +10,6 @@ import image3 from "@public/assets/img/mainpage/njc004.jpeg";
 
 const imgListe = [image1, image2, image3];
 
-// const slides = [
-//   {
-//     src: "/assets/img/11902_index_web.jpg",
-//     alt: "wedding_gallery_roman potachenski",
-//   },
-//   {
-//     src: "/assets/img/park32_index_web.jpg",
-//     alt: "wedding_gallery_roman potachenski",
-//   },
-//   {
-//     src: "/assets/img/18048_index_web.jpg",
-//     alt: "wedding_gallery_roman potachenski",
-//   },
-// ];
-
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -37,7 +22,7 @@ const Home = () => {
   useEffect(() => {
     Aos.init({
       duration: 600,
-      easing: 'ease-in-sine'
+      easing: "ease-in-sine",
     });
     const interval = setInterval(() => {
       const nextSlide = (currentSlide + 1) % imgListe.length;

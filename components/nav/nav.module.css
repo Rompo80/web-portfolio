@@ -1,3 +1,5 @@
+
+
 .logo_center {
     margin-right: auto;  
     margin-left: auto;  
@@ -15,36 +17,29 @@ nav > div:not(.dropdownContent) {
 }
 
 
-
 .dropdownContent {
     position: fixed;
     padding: 0.5rem;
     width: 1100px;
-    justify-content: center;
     display: none;
     flex-direction: row;
     gap: 3em;
-    left: 50%;
-    transform: translateX(-50%);
-    transition:all 0.3s ease-in-out;
-    z-index: 100;
+    transition:all 0.3s ease-in-out; 
 }
-
 
 .showDropdown {
   display: flex;
-  padding: 1rem;
+  padding: 0 2.625rem;
   align-items: center;
   animation: dropdownSlideIn 0.3s ease-in-out 1 forwards;
-  height: 60px;
+  height: 70px;
   background-color: white;
-  max-width: fit-content;
+  max-width: 50%;
   border-bottom-left-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
   -webkit-box-shadow: 0px 9px 15px 1px rgba(233, 233, 233, 1);
   -moz-box-shadow: 0px 9px 15px 1px rgb(185, 185, 185);
   box-shadow: 0px 9px 15px 1px rgba(233, 233, 233, 0.5);
-
 }
 
 .nav {
@@ -53,7 +48,7 @@ nav > div:not(.dropdownContent) {
     gap: 2rem;
     align-items: center;
     justify-content: center; 
-    
+   
   }
 
 .aLinks {
@@ -72,6 +67,8 @@ nav > div:not(.dropdownContent) {
     padding-top: 0.5rem;
     align-self: center;
   }
+
+
 .menu {
   background-color: transparent;
   cursor: pointer;
@@ -85,11 +82,24 @@ nav > div:not(.dropdownContent) {
   font-family: inherit;
   transition: color 0.2s ease-in-out;
   z-index: 100;
+  width: 30px;
 }
+
+.menu .fa-bars {
+  color: black;
+}
+
 
 .menu:hover {
   color:  var(--accent-color);
 }
+
+.menu>img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 
 
 .img_logo {
@@ -102,7 +112,6 @@ nav > div:not(.dropdownContent) {
   display: none;
   gap:0.5rem;
 }
-
 
 
 .img-logo:hover {
@@ -119,11 +128,14 @@ nav > div:not(.dropdownContent) {
 }
 
 
+
+
   /* Define a keyframes animation for sliding in */
 @keyframes dropdownSlideIn {
   from {
       opacity: 0;
-      top: -100%;
+      top:0;
+      
   }
   to {
       opacity: 1;
@@ -160,8 +172,6 @@ nav > div:not(.dropdownContent) {
   z-index: 2;
 }
 
-
-
 .mobile_nav.active,
 .overlay.active
  {
@@ -177,7 +187,7 @@ nav > div:not(.dropdownContent) {
   font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
   font-weight: 300;
-  align-self: center;
+  align-self: flex-end;
 }
 
 
@@ -207,8 +217,7 @@ nav > div:not(.dropdownContent) {
     display: none;
   }
 .aLinks {
-  font-size: 18px;
-
+  font-size: 20px;
 }
 
 }

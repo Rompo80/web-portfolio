@@ -4,21 +4,26 @@ import instIcone from '@public/assets/icons/insta-logo-2.svg'
 import emailIcone from '@public/assets/icons/gmail-logo-2.svg'
 import Link from "next/link";
 import Image from "next/image";
+import navLinks from '@lib/navLinks';
+
+const modifiedLinks = () => {
+  return navLinks.filter((link) => link.id !== "2");
+}
 
 const MobileNav = ({
-  links,
   styles,
   dropDown,
   toggleSubmenu,
   mobileMenu,
   showMobileNav,
 }) => {
-  return (
+
+   return (
     <section className={classes.mobile_section}>
       <nav
         className={`${styles.mobile_nav} ${mobileMenu ? styles.active : ""}`}
       >
-        {links.map((item) => (
+        {modifiedLinks().map((item) => (
           <div key={item.id}>
             {item.img !== "" && !item.submenu ? (
               <Link
