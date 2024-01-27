@@ -64,7 +64,6 @@ const Nav = () => {
                   className={`${styles.dropdownContent} ${
                     dropDown ? styles.showDropdown : ""
                   }`}
-                  // onMouseLeave={(e) => toggleSubmenu(e)}
                 >
                   {link.submenu.map((submenuItem) => (
                     <Link
@@ -102,11 +101,17 @@ const Nav = () => {
             src={logo}
             alt="rp-logo"
           />
-          <span 
+          <p 
           className={styles.author}
           >
-           Roman Potachenski
-          </span>
+           Roman 
+          </p>
+          <p 
+          className={styles.author}
+          >
+           Potachenski 
+          </p>
+
         </Link>
         <button className={styles.menu} onClick={showMobileNav}>
           {!mobileMenu ? (<Image

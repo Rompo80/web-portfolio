@@ -33,7 +33,6 @@ const Home = () => {
           key={index}
           src={img}
           alt={`main_image ${index + 1}`}
-          // className={styles.image}
           className={`${styles.image} ${index === currentIndex ? styles.active : ""}`}
           layout="fill"
           objectFit="cover"

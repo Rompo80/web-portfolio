@@ -176,13 +176,16 @@ nav > div:not(.dropdownContent) {
 
 
 .author {
-  font-family: 'Cormorant Garamond', serif;
   font-size: 20px;
   font-weight: 300;
+  line-height: normal;
   align-self: flex-end;
 }
 
-
+.author::first-letter {
+  font-size: large;
+  color: var(--accent-color);
+}
 
 @media (max-width: 1085px) {
 
