@@ -29,15 +29,17 @@ const Home = () => {
   return (
     <section className={styles.slider}>
       {imgListe.map((img, index) => (
-        <div key={index} className={`${styles.imageContainer} ${index === currentIndex ? styles.active : ""}`}>
           <Image
+          key={index}
           src={img}
           alt={`main_image ${index + 1}`}
-          className={styles.image}
+          // className={styles.image}
+          className={`${styles.image} ${index === currentIndex ? styles.active : ""}`}
           layout="fill"
-          objectFit="contain"
+          objectFit="cover"
+          objectPosition={index === imgListe.length -1 ? "70% 10%": ""}
         />
-        </div>
+        // </div>
       ))}
     </section>
   );
