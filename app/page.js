@@ -36,7 +36,6 @@ const Home = () => {
           className={styles.image}
           layout="fill"
           objectFit="contain"
-          // objectPosition="40% 40%"
         />
         </div>
       ))}

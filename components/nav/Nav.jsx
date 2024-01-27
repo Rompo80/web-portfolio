@@ -6,7 +6,7 @@ import logo from '@public/assets/icons/rp-logo.svg';
 import styles from "@components/nav/nav.module.css";
 import MobileNav from "@components/mobile/MobileNav";
 import navLinks from '@lib/navLinks';
-import menuClose from '@public/assets/icons/menu_close.svg';
+import menuClose from '@public/assets/icons/close-symbol.png';
 import menuBurger from '@public/assets/icons/menu-burger.png';
 
 
