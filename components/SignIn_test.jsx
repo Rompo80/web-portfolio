@@ -63,11 +63,13 @@ const SignInForm = ({ classes }) => {
       <div role="form" className={classes.login_form}>
         <input
           type="text"
+          placeholder="enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
+          placeholder="enter code"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

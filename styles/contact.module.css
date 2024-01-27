@@ -49,25 +49,20 @@
 }
 
 .form > button {
-    background-color: transparent;
+    font-family: 'Montserrat', sans-serif;
     border-radius: 0.25rem;
-    /* border: 1px solid #ff921e; */
-    border: 1px solid #555555;
     padding: 0.375rem 0.75rem;
     font-size: 1.25rem;
     line-height: 1.5;
-    /* background-clip: padding-box; */
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-    color: #555555;
-    cursor: pointer;
-    
-}
-
-
-.form > button:hover {
+    transition: opacity 300ms ease-in-out;
     background-color: black;
     border: 1px solid black;
     color: white;
+    cursor: pointer;
+    font-weight: 400;
+}
+.form > button:hover {
+    opacity: 0.8;
 }
 
 .isInvalid {

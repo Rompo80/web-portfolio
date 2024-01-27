@@ -45,11 +45,14 @@
 }
 .login_form button{
   padding: 0.5rem;
-  font-size: inherit;
-  font-weight: normal;
+  font-size: larger;
+  font-weight: 400;
   text-transform: capitalize;
   font-family: 'Montserrat', sans-serif;
   margin-top: 0.5rem;
+  background-color: black;
+  color: whitesmoke !important;
+  border-radius: 0.25rem;
 }
 
 

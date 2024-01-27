@@ -185,7 +185,7 @@ input {
     margin-top: 0.75rem;
   }
   
-  [type="submit"]:hover,
+  /* [type="submit"]:hover, */
   input[type="submit"]:hover {
     background-color: var(--bg-btn_hover);
     color: black;
