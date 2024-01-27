@@ -1,26 +1,24 @@
 .slider {
   width: clamp(385px, 50vw, 1000px);
   max-width: 400px;
-  height: auto;
-  position: relative;
-  /* display: flex; */
+  /* height: auto; */
   overflow: hidden;
   align-self: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  /* margin-top: auto;
+  margin-bottom: auto; */
 }
 
 .imageContainer {
   width: 100%;
-  height: 70%;
+  height:100%;
+  max-height:67vh;
   opacity: 0;
   filter: grayscale(100%);
   transition: opacity 5s ease-in-out;
-  position: fixed;
+  position: fixed; 
   top: 47%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  left: 50%; 
+ transform: translate(-50%, -50%);
 }
 
 .active {

@@ -37,9 +37,10 @@ nav > div:not(.dropdownContent) {
   max-width: 50%;
   border-bottom-left-radius: 0.2rem;
   border-bottom-right-radius: 0.2rem;
-  -webkit-box-shadow: 0px 9px 15px 1px rgba(233, 233, 233, 1);
-  -moz-box-shadow: 0px 9px 15px 1px rgb(185, 185, 185);
-  box-shadow: 0px 9px 15px 1px rgba(233, 233, 233, 0.5);
+  -webkit-box-shadow: 0px 5px 10px 1px rgba(233, 233, 233, 0.5);
+  -moz-box-shadow: 0px 5px 10px 1px rgb(185, 185, 185);
+  box-shadow: 0px 5px 10px 1px rgba(233, 233, 233, 0.5);
+  z-index: 2;
 }
 
 .nav {
@@ -76,17 +77,13 @@ nav > div:not(.dropdownContent) {
   display: none;
   gap: 0.5rem;
   align-items: center;
-  height: 30px;
+  height: 35px;
+  width: 35px;
   font-size: inherit;
   font-weight: 300;
   font-family: inherit;
   transition: color 0.2s ease-in-out;
   z-index: 100;
-  width: 30px;
-}
-
-.menu .fa-bars {
-  color: black;
 }
 
 
@@ -99,8 +96,6 @@ nav > div:not(.dropdownContent) {
   height: 100%;
   object-fit: cover;
 }
-
-
 
 .img_logo {
   display: none;
@@ -128,8 +123,6 @@ nav > div:not(.dropdownContent) {
 }
 
 
-
-
   /* Define a keyframes animation for sliding in */
 @keyframes dropdownSlideIn {
   from {
@@ -142,7 +135,6 @@ nav > div:not(.dropdownContent) {
       top: 4.5rem;
   }
 }
-
 
 .overlay {
   position: fixed;

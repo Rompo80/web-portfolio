@@ -7,6 +7,7 @@ import styles from "@components/nav/nav.module.css";
 import MobileNav from "@components/mobile/MobileNav";
 import navLinks from '@lib/navLinks';
 import menuClose from '@public/assets/icons/menu_close.svg';
+import menuBurger from '@public/assets/icons/menu-burger.png';
 
 
 const Nav = () => {
@@ -108,10 +109,11 @@ const Nav = () => {
           </span>
         </Link>
         <button className={styles.menu} onClick={showMobileNav}>
-          {!mobileMenu ? (<span
-            className="fa fa-bars fa-2x"
-            aria-label="mobile-menu-button"
-          ></span>) : (<Image
+          {!mobileMenu ? (<Image
+            className={styles.menu_burger}
+            src={menuBurger}
+            alt="mobile-menu-button"
+          />) : (<Image
             src={menuClose}
             alt="mobile-menu-button"
           />)}
