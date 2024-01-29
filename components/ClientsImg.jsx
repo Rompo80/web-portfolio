@@ -48,7 +48,6 @@ const ClientsImg = ({ img, userId, classes }) => {
       });
 
       if (response.ok) {
-        // setIsLiked(!isLiked);
         setIsLiked((prevLikes) => {
           // Toggle the like status only for the clicked image
           if (prevLikes.includes(img.id)) {
@@ -57,7 +56,7 @@ const ClientsImg = ({ img, userId, classes }) => {
             return prevLikes ? [...prevLikes, img.id] : [img.id];
           }
         });
-        //fetchFavoritedImages();
+     
       } else {
         console.error(
           "Error updating liked status in the database:",
@@ -103,7 +102,7 @@ const ClientsImg = ({ img, userId, classes }) => {
 
   return (
     <div className={classes.img_frame}>
-      <span>
+      <span className={classes.client_title}>
         {imgName(img.img_path)}
         <span
           className={`fa fa-heart${

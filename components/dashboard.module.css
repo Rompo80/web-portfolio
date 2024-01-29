@@ -1,13 +1,48 @@
-.signin {
 
-    background: black;
-    padding: 0.625rem 1rem;
-    border-radius: 0.25rem;
+.dash_container {
+width:100%;
+border-top: 1px solid var(--accent-color);
+display: flex;
+flex-direction: column;
+}
+
+.dash_container > h2 {
+    align-self: center;
+}
+
+.dash_container > aside {
+    max-width: 1100px;
+    padding: 1rem;
+    align-self: center;
+    width: 100%;
+}
+
+.dash_container header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.dash_container a {
+    color: black;
+    transition: color 250ms ease-in-out;
+}
+
+
+.dash_container a:hover {
+color: var(--accent-color);
+}
+
+
+.dash_btn {
     margin-left: auto;
-    color: whitesmoke;
-    transition: opacity 300ms ease-in-out;
 }
 
-.signin:hover {
-   opacity: 0.8;
+.dash_email {
+font-size: large;
+letter-spacing: 0.2ch;
+color: var(--accent-color);
 }
+
+

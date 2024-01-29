@@ -59,7 +59,7 @@ const SignInForm = ({ classes }) => {
   return (
     <section className={classes.login_container}>
       <header className={classes.header}>
-        <h2>Client Sign In</h2>
+        <h3>Sign in to view your photo session</h3>
       </header>
       <div role="form" className={classes.login_form}>
         <input
@@ -79,7 +79,7 @@ const SignInForm = ({ classes }) => {
           disabled={isSignInDisabled}
           style={isSignInDisabled ? styles.disabled : {}}
         >
-          {isLoading ? (<div className={classes.loader_box}><div className={classes.loader}></div><span>Signing in...</span></div>)  : "Sign in" }
+          {isLoading ? (<div className={classes.loader_box}><div className={classes.loader}></div><span>Signing in...</span></div>)  : "Continue" }
         </button>
 
         <p>{message}</p>
