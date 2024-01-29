@@ -2,7 +2,7 @@
 .header_container{
   width:100%;
   /* border-bottom: 1px solid #4d4d4d; */
-  border-bottom: 1px solid var(--accent-color);
+  border-top: 1px solid var(--accent-color);
   display: flex;
   justify-content: center;
 }
