@@ -2,21 +2,19 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import logo from '@public/assets/icons/rp-logo.svg';
+import logo from "@public/assets/icons/rp-logo.svg";
 import styles from "@components/nav/nav.module.css";
 import MobileNav from "@components/mobile/MobileNav";
-import navLinks from '@lib/navLinks';
-import menuClose from '@public/assets/icons/close-symbol.png';
-import menuBurger from '@public/assets/icons/menu-burger.png';
-
+import navLinks from "@lib/navLinks";
+import menuClose from "@public/assets/icons/close-symbol.png";
+import menuBurger from "@public/assets/icons/menu-burger.png";
 
 const Nav = () => {
   const [dropDown, setDropdown] = useState(false);
   const [mobileMenu, setMobile] = useState(false);
-  
 
   const showMobileNav = () => {
-    setMobile((prev) => !prev)
+    setMobile((prev) => !prev);
   };
 
   const toggleSubmenu = (e) => {
@@ -38,7 +36,6 @@ const Nav = () => {
   }, [dropDown]);
 
   return (
-  
     <header className={styles.header}>
       <div
         className={`${styles.overlay} ${mobileMenu ? styles.active : ""}`}
@@ -68,15 +65,14 @@ const Nav = () => {
                   {link.submenu.map((submenuItem) => (
                     <Link
                       key={submenuItem.to}
-                      href={{ pathname: `/portfolio/[category]`}}
+                      href={{ pathname: `/portfolio/[category]` }}
                       as={`/portfolio/${submenuItem.to}`}
-                       shallow
+                      shallow
                       className={styles.aLinks}
                       onClick={(e) => toggleSubmenu(e)}
                     >
                       {submenuItem.name}
                     </Link>
-                    
                   ))}
                 </div>
               </div>
@@ -95,33 +91,20 @@ const Nav = () => {
       </nav>
       <aside className={styles.aside}>
         <Link href="/" className={styles.div_img}>
-         
-          <Image
-            className={styles.img_logo}
-            src={logo}
-            alt="rp-logo"
-          />
-          <p 
-          className={styles.author}
-          >
-           Roman 
-          </p>
-          <p 
-          className={styles.author}
-          >
-           Potachenski 
-          </p>
-
+          <Image className={styles.img_logo} src={logo} alt="rp-logo" />
+          <p className={styles.author}>Roman</p>
+          <p className={styles.author}>Potachenski</p>
         </Link>
         <button className={styles.menu} onClick={showMobileNav}>
-          {!mobileMenu ? (<Image
-            className={styles.menu_burger}
-            src={menuBurger}
-            alt="mobile-menu-button"
-          />) : (<Image
-            src={menuClose}
-            alt="mobile-menu-button"
-          />)}
+          {!mobileMenu ? (
+            <Image
+              className={styles.menu_burger}
+              src={menuBurger}
+              alt="mobile-menu-button"
+            />
+          ) : (
+            <Image src={menuClose} alt="mobile-menu-button" />
+          )}
         </button>
       </aside>
       {mobileMenu && (
@@ -134,7 +117,6 @@ const Nav = () => {
         />
       )}
     </header>
- 
   );
 };
 

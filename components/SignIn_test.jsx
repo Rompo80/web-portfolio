@@ -16,14 +16,16 @@ const SignInForm = ({ classes }) => {
   const styles = {
     disabled: {
       pointerEvents: "none",
-      color: "#e98924",
+      border: "1px solid var(--border-color)",
+      background: "none",
+      color: "var(--placeholder-color)"
     },
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setMessage("Signing in...");
+   
 
     try {
       const signInResponse = await signIn("credentials", {
@@ -37,7 +39,6 @@ const SignInForm = ({ classes }) => {
         setIsLoading(false);
       } else {
         setMessage("");
-        // router.refresh();
       }
     } catch (err) {
       console.log(err);
@@ -78,11 +79,11 @@ const SignInForm = ({ classes }) => {
           disabled={isSignInDisabled}
           style={isSignInDisabled ? styles.disabled : {}}
         >
-          Sign in
+          {isLoading ? (<div className={classes.loader_box}><div className={classes.loader}></div><span>Signing in...</span></div>)  : "Sign in" }
         </button>
 
         <p>{message}</p>
-        {isLoading && <div className={classes.loader}></div>}
+        
       </div>
     </section>
   );

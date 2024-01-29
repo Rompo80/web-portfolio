@@ -11,29 +11,32 @@ const ProtectedLayout = ({ children }) => {
   const params = useParams();
 
   const { data: session, status } = useSession();
-    
+
   const userName = decodeURIComponent(params.uImages[0]);
   const sessionUser = session?.user.name;
-
-  
 
   useEffect(() => {
     if (status !== "authenticated") {
       router.push("/signin");
     }
-
   }, [status, router]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return (
+      <div className={classes.loader_box}>
+        <div className={classes.loader}></div>
+        <span>loading...</span>
+      </div>
+    );
   }
-
-
+  // || userName !== sessionUser
   return (
     <section>
-      <Dashboard classes={classes} session={session}/>
-      {!session || userName !== sessionUser ? (
-        <div className={classes.protected}>This page is protected and you do not have access to it!</div>
+      <Dashboard classes={classes} session={session} />
+      {!session  ? (
+        <div className={classes.protected}>
+          This page is protected and you do not have access to it!
+        </div>
       ) : (
         <aside>{children}</aside>
       )}

@@ -13,7 +13,9 @@ const SignUpForm = ({ classes }) => {
   const styles = {
     disabled: {
       pointerEvents: "none",
-      color: "#e98924",
+      border: "1px solid var(--border-color)",
+      background: "none",
+      color: "var(--placeholder-color)"
     },
   };
 

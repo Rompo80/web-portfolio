@@ -64,10 +64,27 @@ nav > div:not(.dropdownContent) {
 }
 
 .header {
+    width: 100%;
     max-width: 1100px;
+    height: 100px;
+   
     padding-top: 0.5rem;
     align-self: center;
+    /* position: fixed;
+   top: 0;
+    left: 0;
+    right: 0;
+    transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+    transition: max-height 0.3s ease-in-out; */
   }
+
+  
+  /* .scrolled{
+      max-height: 100px;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1);
+      transition: max-height 0.3s ease-in-out;
+  }  */
+
 
 
 .menu {

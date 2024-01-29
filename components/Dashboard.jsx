@@ -2,12 +2,13 @@ import classDash from "@components/dashboard.module.css";
 import Link from "next/link";
 
 
-const Dashboard = ({ classes, session, status }) => {
+
+const Dashboard = ({ classes, session, status, pathname }) => {
 
   const adminEmail = process.env.NEXT_PUBLIC_ADMIN_USER;
   const clientEmail = session?.user.email;
-  
-   console.log(adminEmail);
+
+
   return (
     <section className={classes.header_container}>
 
@@ -24,9 +25,11 @@ const Dashboard = ({ classes, session, status }) => {
           </>
         ) : (
           <>
-            <Link className={classDash.signin} href="/signin">
+            {pathname !== "/signin" ? (<Link className={classDash.signin} href="/signin">
               Sign In
-            </Link>
+            </Link>): (<Link className={classDash.signin} href="/proofing">
+              Back
+            </Link>)}
           </>
         )}
       </aside>
