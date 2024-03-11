@@ -6,31 +6,31 @@ const imageData = [
   {
     img_name: 'njc001',
     img_path: '/assets/img/weddings/njc001.jpg',
-    session_id: 1, 
+    session_id: 2, 
     type_id: 1,    
   },
   {
     img_name: 'njc002',
     img_path: '/assets/img/weddings/njc002.jpg',
-    session_id: 1, 
+    session_id: 2, 
     type_id: 1,    
   },
   {
     img_name: 'njc003',
     img_path: '/assets/img/weddings/njc003.jpg',
-    session_id: 1, 
+    session_id: 2, 
     type_id: 1,    
   },
   {
     img_name: 'njc004',
     img_path: '/assets/img/weddings/njc004.jpg',
-    session_id: 1, 
+    session_id: 2, 
     type_id: 1,    
   },
   {
     img_name: 'njc005',
     img_path: '/assets/img/weddings/njc005.jpg',
-    session_id: 1, 
+    session_id: 2, 
     type_id: 1,    
   },
  

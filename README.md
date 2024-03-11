@@ -11,3 +11,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 1. 
   npm install next-auth @next-auth/prisma-adapter @prisma/client bcrypt
+
+2. to run prisma studio 
+- npm install -g dotenv-cli
+- dotenv -e .env.local -- npx prisma studio

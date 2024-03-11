@@ -1,7 +1,6 @@
-'use server';
-import prisma from '@lib/prisma';
-import bcrypt from 'bcrypt';
-
+"use server";
+import prisma from "@lib/prisma";
+import bcrypt from "bcrypt";
 
 export default async function signUp(name, email, password, privilegeId) {
   try {
@@ -10,25 +9,23 @@ export default async function signUp(name, email, password, privilegeId) {
         email,
       },
     });
-  
+
     if (user) {
-      return 'User with that email already exists';
+      return "User with that email already exists";
     }
-  
 
-   // Check if the privilege with the given ID exists
-   const privilege = await prisma.privilege.findUnique({
-    where: { id: privilegeId },
-  });
+    // Check if the privilege with the given ID exists
+    const privilege = await prisma.privilege.findUnique({
+      where: { id: privilegeId },
+    });
 
-  if (!privilege) {
-    return 'Invalid privilege ID';
-  }
-
+    if (!privilege) {
+      return "Invalid privilege ID";
+    }
 
     const passwordHash = await bcrypt.hash(password, 10);
-  
-    await prisma.user.create({
+
+    const newUser = await prisma.user.create({
       data: {
         name,
         email,
@@ -39,9 +36,19 @@ export default async function signUp(name, email, password, privilegeId) {
       },
     });
 
-    return 'Successfully created new user!';
+    // Create the session for the newly created user
+    await prisma.session.create({
+      data: {
+        title: name, // Use user's name as session title
+        user: {
+          connect: { id: newUser.id }, // Connect session to the newly created user
+        },
+      },
+    });
+
+    return "Successfully created new user and session!";
   } catch (error) {
-    console.error('Error creating user:', error);
-    return 'Error creating user';
+    console.error("Error creating user and session:", error);
+    return "Error creating user and session";
   }
-};
+}

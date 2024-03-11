@@ -7,13 +7,6 @@ import download from "@public/assets/icons/download.png";
 const ClientsImg = ({ img, userId, classes }) => {
   const [isLiked, setIsLiked] = useState(null);
 
-  const imgName = (path) => {
-    const pathParts = path.split("/");
-    const namePart = pathParts[pathParts.length - 1];
-    const imageName = namePart.split(".");
-    return imageName[imageName.length - 2];
-  };
-
   useEffect(() => {
     // Fetch favorited images when the component mounts
     const fetchFavoritedImages = async () => {
@@ -56,7 +49,6 @@ const ClientsImg = ({ img, userId, classes }) => {
             return prevLikes ? [...prevLikes, img.id] : [img.id];
           }
         });
-     
       } else {
         console.error(
           "Error updating liked status in the database:",
@@ -71,17 +63,20 @@ const ClientsImg = ({ img, userId, classes }) => {
   const handleClick = async () => {
     const path = img.img_path.split("/");
     const pathName = path[path.length - 1];
+
     try {
-      const response = await fetch(`/api/download/${path}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      console.log(pathName);
+      const response = await fetch(
+        `/api/download?imagePath=${img.img_path}&imageName=${pathName}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
       if (response.ok) {
         const blob = await response.blob();
-
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement("a");
         link.href = url;
@@ -103,7 +98,7 @@ const ClientsImg = ({ img, userId, classes }) => {
   return (
     <div className={classes.img_frame}>
       <span className={classes.client_title}>
-        {imgName(img.img_path)}
+        {img.img_name}
         <span
           className={`fa fa-heart${
             isLiked && isLiked.includes(img.id) ? "" : "-o"
@@ -112,14 +107,11 @@ const ClientsImg = ({ img, userId, classes }) => {
           onClick={toggleLike}
         ></span>
       </span>
-     
-      <img src={img.img_path} alt={imgName(img.img_path)} />
-  
+
+      <Image src={img.img_path} alt={img.img_name} width={500} height={375} />
+
       <button type="button" onClick={handleClick}>
-        <Image
-          src={download}
-          alt="download-button"
-        />
+        <Image src={download} alt="download-button" />
       </button>
     </div>
   );

@@ -20,6 +20,8 @@ const GetPortfolio = ({ params }) => {
     src: `/assets/img/${pathname}/${file}`,
     alt: file.split(".")[0],
   }));
+
+ 
  
   return (
     <main>
