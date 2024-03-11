@@ -170,9 +170,10 @@ nav > div:not(.dropdownContent) {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  left: 40%;
+  left: 50%;
+  right: auto;
   top: 50%;
-  transform: translate(-30%, -50%);
+  transform: translate(-50%, -50%);
   transition: all 0.5s ease-in-out; 
   opacity: 0;
   z-index: 2;

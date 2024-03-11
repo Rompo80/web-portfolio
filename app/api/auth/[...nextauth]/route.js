@@ -7,18 +7,7 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 const authOptions = {
   providers: [
     CredentialsProvider({
-      // name: 'credentials',
-      // credentials: {
-      //   email: {
-      //     label: 'Email',
-      //     type: 'text',
-      //     placeholder: 'your@email.com',
-      //   },
-      //   password: {
-      //     label: 'Password',
-      //     type: 'password',
-      //   },
-      // },
+  
       authorize: async (credentials) => {
         if (!credentials) {
           return null;

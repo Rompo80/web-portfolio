@@ -1,6 +1,8 @@
 import prisma from "@lib/prisma";
 import ClientsImg from "@components/ClientsImg";
 import classes from '@styles/clients.module.css';
+import FormUpload from "@components/FormUpload";
+
 
 
 const getImages = async ({ params }) => {
@@ -26,12 +28,14 @@ const getImages = async ({ params }) => {
 
 return (
   <section className={classes.flex}>
-      {images ? (
-        images.map((img) => (
-          <ClientsImg key={img.id} img={img} userId={userId} classes={classes}/>
+    <FormUpload userId={userId} sessionId={sessionId}/>
+      {images.length > 0 ? (
+        images.map((img) => ( <>
+          <ClientsImg key={img.id} img={img} userId={userId} classes={classes} fill/>
+          </>
         ))
       ) : (
-        <h2>The session photos will be uploaded shortly</h2>
+        <FormUpload userId={userId} sessionId={sessionId}/>
       )}
     </section>
   );
