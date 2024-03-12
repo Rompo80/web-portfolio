@@ -15,3 +15,25 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 2. to run prisma studio 
 - npm install -g dotenv-cli
 - dotenv -e .env.local -- npx prisma studio
+
+
+- (protected) page:
+<code> 
+<!-- // const getImages = async ({ params }) => { -->
+//   const { uImages } = params;
+//   let userId = parseInt(uImages[1]);
+//   let sessionId = parseInt(uImages[2]);
+
+//   if (!sessionId || !userId) {
+//     sessionId = "";
+//     userId = "";
+//   }
+
+//   const images = await prisma.image.findMany({
+//     where: {
+//       session: {
+//         id: sessionId,
+//         user_id: userId,
+//       },
+//     },
+//   });

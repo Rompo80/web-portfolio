@@ -94,7 +94,7 @@ const ClientsImg = ({ img, userId, classes }) => {
       console.error("Error downloading image:", error);
     }
   };
-
+  console.log(img.img_path);
   return (
     <div className={classes.img_frame}>
       <span className={classes.client_title}>
