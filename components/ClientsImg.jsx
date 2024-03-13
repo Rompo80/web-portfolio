@@ -3,6 +3,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import download from "@public/assets/icons/download.png";
+import { list } from "@vercel/blob";
 
 const ClientsImg = ({ img, userId, classes }) => {
   const [isLiked, setIsLiked] = useState(null);
@@ -60,41 +61,13 @@ const ClientsImg = ({ img, userId, classes }) => {
     }
   };
 
-  const handleClick = async () => {
-    const path = img.img_path.split("/");
-    const pathName = path[path.length - 1];
-
-    try {
-      const response = await fetch(
-        `/api/download?imagePath=${img.img_path}&imageName=${pathName}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const link = document.createElement("a");
-        link.href = url;
-        link.download = pathName;
-        link.click();
-        window.URL.revokeObjectURL(url);
-      } else {
-        console.error(
-          "Error downloading image. Server responded with:",
-          response.status,
-          response.statusText
-        );
-      }
-    } catch (error) {
-      console.error("Error downloading image:", error);
-    }
+  const handleClick = () => {
+    const downloadUrl = `${img.img_path}?download=1`;
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.click();
   };
-  console.log(img.img_path);
+
   return (
     <div className={classes.img_frame}>
       <span className={classes.client_title}>

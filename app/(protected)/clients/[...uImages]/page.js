@@ -28,7 +28,10 @@ const getImages = () => {
         const data = await response.json();
         setImages(data);
       } else {
-        setMessage("There is no photo session available yet!", response.statusText);
+        setMessage(
+          "There is no photo session available yet!",
+          response.statusText
+        );
         setImages([]);
       }
     } catch (error) {
@@ -42,14 +45,9 @@ const getImages = () => {
       {message && <p>{message}</p>}
       {images.length > 0 ? (
         images.map((img) => (
-          <>
-            <ClientsImg
-              key={img.id}
-              img={img}
-              userId={userId}
-              classes={classes}
-            />
-          </>
+          <div key={img.id}>
+            <ClientsImg img={img} userId={userId} classes={classes} />
+          </div>
         ))
       ) : (
         <FormUpload userId={userId} sessionId={sessionId} />
