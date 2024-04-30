@@ -16,3 +16,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 - npm install -g dotenv-cli
 - dotenv -e .env.local -- npx prisma studio
 
+To visit site click bellow: 
+- https://web-portfolio-nine-lyart.vercel.app/ 
+
